@@ -1,4 +1,4 @@
-|Build Status| |PyPI Version| |PyPI Downloads| |Wheel Status|
+|Build Status| |Coverage Status| |PyPI Version| |PyPI Downloads| |Wheel Status|
 
 python-envcfg
 =============
@@ -40,6 +40,9 @@ If you want to report bugs or request features, please create issues on
 .. |Build Status| image:: https://travis-ci.org/tonyseek/python-envcfg.svg?branch=master,develop
    :target: https://travis-ci.org/tonyseek/python-envcfg
    :alt: Build Status
+.. |Coverage Status| image:: https://img.shields.io/coveralls/tonyseek/python-envcfg/develop.svg
+   :target: https://coveralls.io/r/tonyseek/python-envcfg
+   :alt: Coverage Status
 .. |Wheel Status| image:: https://pypip.in/wheel/python-envcfg/badge.svg
    :target: https://warehouse.python.org/project/python-envcfg
    :alt: Wheel Status

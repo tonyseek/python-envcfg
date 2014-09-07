@@ -1,0 +1,18 @@
+language: python
+python:
+  - "2.7"
+  - "3.3"
+  - "3.4"
+  - "pypy"
+install:
+  - "pip install ."
+  - "pip install pytest>=2.4.2 -U"
+  - "pip install pytest-cov pytest-pep8 coveralls"
+  - "touch tests/__init__.py"
+script: "py.test --cov envcfg --pep8 tests"
+after_success:
+  coveralls
+branches:
+  only:
+    - master
+    - develop
