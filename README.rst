@@ -24,6 +24,7 @@ Installation
 ------------
 
 ::
+
     $ pip install envcfg
     $ pip freeze > requirements.txt  # http://nvie.com/posts/pin-your-packages/
 
