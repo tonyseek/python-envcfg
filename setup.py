@@ -17,6 +17,7 @@ setup(
     url='https://github.com/tonyseek/python-envcfg',
     license='MIT',
     packages=find_packages(),
+    keywords=['env', 'config', '12-factor'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: MIT License',
