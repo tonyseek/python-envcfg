@@ -59,7 +59,7 @@ Uses with Flask
 Uses with Django
 ~~~~~~~~~~~~~~~~
 
-1. Creates a django project and move all sensitive config items into the
+1. Creates a django project and moves all sensitive config items into the
    environment variables::
 
     $ cat djapp/settings.py  # codebase-scope config
