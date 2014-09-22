@@ -86,6 +86,63 @@ Uses with Django
     $ (source .env && python manage.py runserver)
 
 
+Uses with Tornado
+~~~~~~~~~~~~~~~~~
+
+1. Defines environment variables with a prefix::
+
+    $ cat .env
+    export TORAPP_PORT='8888'
+    export TORAPP_MYSQL_HOST='"127.0.0.1"'
+    export TORAPP_MYSQL_DATABASE='"database"'
+
+
+2. Creates a Tornado project and loads config::
+
+    $ cat torapp/server.py
+
+    from tornado.web import Application, RequestHandler
+    from tornado.ioloop import IOLoop
+    from tornado.options import define, options
+    from tordb import Connection
+
+
+    def options_from_object(*args, **kwargs):
+        module = __import__(*args, **kwargs)
+        for name, value in vars(module).items():
+            name = name.lower()
+            if name in options._options:
+                options._options[name].set(value)
+
+
+    class IndexHandler(RequestHandler):
+        def initialize(self):
+            self.db = Connection(options.mysql_host, options.mysql_database)
+
+        def get(self):
+            pass  # some database operations with ``self.db``
+
+
+    application = Application([
+        (r'/', IndexHandler),
+    ])
+
+    define('port', type=int)
+    define('mysql_host', type=unicode)
+    define('mysql_database', type=unicode)
+    options_from_object('envcfg.json.torapp', fromlist=['torapp'])
+
+
+    if __name__ == '__main__':
+        application.listen(options.port)
+        IOLoop.instance().start()
+
+
+3. Runs your Tornado app::
+
+   $ (source .env && python server.py)
+
+
 Works on Projects
 -----------------
 
