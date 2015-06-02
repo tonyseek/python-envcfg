@@ -53,7 +53,7 @@ Uses with Flask
 
 3. Enters your app with those environment variables::
 
-    $ (source .env && python myapp.py)
+    $ env $(cat .env | xargs) python myapp.py
 
 
 Uses with Django
@@ -83,7 +83,7 @@ Uses with Django
 
 3. Runs your Django app with environment variables::
 
-    $ (source .env && python manage.py runserver)
+    $ env $(cat .env | xargs) python manage.py runserver
 
 
 Uses with Tornado
@@ -140,7 +140,7 @@ Uses with Tornado
 
 3. Runs your Tornado app::
 
-   $ (source .env && python server.py)
+   $ env $(cat .env | xargs) python server.py
 
 
 Works on Projects
