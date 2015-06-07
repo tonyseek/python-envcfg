@@ -195,7 +195,7 @@ If you want to report bugs or request features, please create issues on
 .. |Coverage Status| image:: https://img.shields.io/coveralls/tonyseek/python-envcfg/develop.svg
    :target: https://coveralls.io/r/tonyseek/python-envcfg
    :alt: Coverage Status
-.. |Wheel Status| image:: https://pypip.in/wheel/python-envcfg/badge.svg
+.. |Wheel Status| image:: https://img.shields.io/pypi/wheel/python-envcfg.svg
    :target: https://warehouse.python.org/project/python-envcfg
    :alt: Wheel Status
 .. |PyPI Version| image:: https://img.shields.io/pypi/v/python-envcfg.svg
