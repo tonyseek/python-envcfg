@@ -26,8 +26,47 @@ Installation
 ::
 
     $ pip install python-envcfg
-    $ pip freeze > requirements.txt  # http://nvie.com/posts/pin-your-packages/
 
+
+Supported Formats
+-----------------
+
+- ``import envcfg.raw.foo as config``:
+  Import each ``FOO_*`` environment variable as string.
+- ``import envcfg.json.foo as config``:
+  Import each ``FOO_*`` environment variable as JSON body.
+- ``import envcfg.smart.foo as config``:
+  Try to import each ``FOO_*`` environment variable as JSON body, if fail then import it as string.
+
+There is an example table:
+
++----------------------+---------------------------+-----------------------+
+| Environment Variable | Python Import Statement   | Python Variable Value |
++======================+===========================+=======================+
+| ``FOO_NAME=foo``     | ``envcfg.raw.foo.NAME``   | ``'foo'``             |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NAME="foo"``   | ``envcfg.raw.foo.NAME``   | ``'"foo"'``           |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NUM1=42``      | ``envcfg.raw.foo.NUM1``   | ``'42'``              |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NUM1="42"``    | ``envcfg.raw.foo.NUM1``   | ``'"42"'``            |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NAME=foo``     | ``envcfg.json.foo.NAME``  | *ImportError*         |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NAME="foo"``   | ``envcfg.json.foo.NAME``  | ``'foo'``             |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NUM1=42``      | ``envcfg.json.foo.NUM1``  | ``42``                |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NUM1="42"``    | ``envcfg.json.foo.NUM1``  | ``'42'``              |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NAME=foo``     | ``envcfg.smart.foo.NAME`` | ``'foo'``             |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NAME="foo"``   | ``envcfg.smart.foo.NAME`` | ``'foo'``             |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NUM1=42``      | ``envcfg.smart.foo.NUM1`` | ``42``                |
++----------------------+---------------------------+-----------------------+
+| ``FOO_NUM1="42"``    | ``envcfg.smart.foo.NUM1`` | ``'42'``              |
++----------------------+---------------------------+-----------------------+
 
 Examples
 --------
