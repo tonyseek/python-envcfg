@@ -8,7 +8,7 @@ with open('README.rst') as readme:
 
 setup(
     name='python-envcfg',
-    version='0.1.0',
+    version='0.2.0',
     author='Jiangge Zhang',
     author_email='tonyseek@gmail.com',
     description='Accessing environment variables with a magic module.',
@@ -17,6 +17,7 @@ setup(
     url='https://github.com/tonyseek/python-envcfg',
     license='MIT',
     packages=find_packages(),
+    keywords=['env', 'config', '12-factor'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: MIT License',
