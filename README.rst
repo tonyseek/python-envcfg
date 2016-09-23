@@ -52,11 +52,11 @@ There is an example:
 | ``FOO_VAL="42"``  | ``'"42"'``             | ``'42'``                | ``'42'``                 |
 +-------------------+------------------------+-------------------------+--------------------------+
 
-Examples
---------
+Framework Integration
+---------------------
 
-Uses with Flask
-~~~~~~~~~~~~~~~
+Flask
+~~~~~
 
 1. Defines environment variables with a prefix::
 
@@ -79,8 +79,8 @@ Uses with Flask
     $ env $(cat .env | xargs) python myapp.py
 
 
-Uses with Django
-~~~~~~~~~~~~~~~~
+Django
+~~~~~~
 
 1. Creates a django project and moves all sensitive config items into the
    environment variables::
@@ -109,8 +109,8 @@ Uses with Django
     $ env $(cat .env | xargs) python manage.py runserver
 
 
-Uses with Tornado
-~~~~~~~~~~~~~~~~~
+Tornado
+~~~~~~~
 
 1. Defines environment variables with a prefix::
 
@@ -206,6 +206,12 @@ Issues
 
 If you want to report bugs or request features, please create issues on
 `GitHub Issues <https://github.com/tonyseek/python-envcfg/issues>`_.
+
+Alternatives
+------------
+
+- https://github.com/henriquebastos/python-decouple
+- https://github.com/pallets/click
 
 
 .. _12-Factor: http://12factor.net
